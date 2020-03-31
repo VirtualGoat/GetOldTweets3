@@ -4,7 +4,7 @@ import json, re, datetime, sys, random, http.cookiejar
 import urllib.request, urllib.parse, urllib.error
 from pyquery import PyQuery
 from .. import models
-
+from time import sleep
 class TweetManager:
     """A class for accessing the Twitter's search engine"""
     def __init__(self):
@@ -56,7 +56,7 @@ class TweetManager:
         for batch in range(n_batches):  # process all_usernames by batches
             refreshCursor = ''
             batch_cnt_results = 0
-
+            sleep(1)
             if all_usernames:  # a username in the criteria?
                 tweetCriteria.username = all_usernames[batch*usernames_per_batch:batch*usernames_per_batch+usernames_per_batch]
 
